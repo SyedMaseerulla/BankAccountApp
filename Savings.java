@@ -3,15 +3,18 @@ package bankAcc.App;
 public class Savings extends Account{
 	
 	//list properties specific to savings acc.
-		int safetyDepositBoxId;
-		int safetyDepositBoxKey;
+	private int safetyDepositBoxId;
+	private int safetyDepositBoxKey;
 		//initialize constructor to check savings acc properties
 		public Savings(String name, String ssn, double initDeposit){
 			super(name, ssn, initDeposit);
 			accNumber = "1" + accNumber;
 			safetyDepositBox();
 		}
-		
+		@Override
+		public void setRate(){
+			rate = getBaseRate() - 0.25;
+		}
 		//list any methods specific to savings acc.
 		public void safetyDepositBox(){
 			this.safetyDepositBoxId = (int) (Math.random() * Math.pow(10, 3));

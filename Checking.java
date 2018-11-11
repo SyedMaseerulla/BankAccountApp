@@ -1,16 +1,20 @@
 package bankAcc.App;
 
-public class Checking extends Account{
+public  class Checking extends Account{
 
 	//list properties specific to checking acc.
-	int debitCardNumber;
-	int debitCardPin;
+	private int debitCardNumber;
+	private int debitCardPin;
 	
 	//initialize constructor to check acc properties
 	public Checking(String name, String ssn, double initDeposit){
 		super(name, ssn, initDeposit);
 		accNumber = "2" + accNumber;	
 		setDebitCard();
+	}
+	@Override 
+	public void setRate(){
+		rate = getBaseRate() * 0.15; 
 	}
 	//list any methods specific to checking acc.
 	public void setDebitCard(){
